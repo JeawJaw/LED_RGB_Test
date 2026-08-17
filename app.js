@@ -34,9 +34,9 @@ function updateUi() {
     channels[key].input.value = state[key];
     $(`preview${key.toUpperCase()}`).textContent = state[key];
   }
-  channels.r.slider.style.background = `linear-gradient(90deg,rgb(0,${state.g},${state.b}),rgb(255,${state.g},${state.b}))`;
-  channels.g.slider.style.background = `linear-gradient(90deg,rgb(${state.r},0,${state.b}),rgb(${state.r},255,${state.b}))`;
-  channels.b.slider.style.background = `linear-gradient(90deg,rgb(${state.r},${state.g},0),rgb(${state.r},${state.g},255))`;
+  channels.r.slider.style.background = "linear-gradient(90deg,rgb(0,0,0),rgb(255,0,0))";
+  channels.g.slider.style.background = "linear-gradient(90deg,rgb(0,0,0),rgb(0,255,0))";
+  channels.b.slider.style.background = "linear-gradient(90deg,rgb(0,0,0),rgb(0,0,255))";
 }
 
 function setRgb(r,g,b,send = true) {
