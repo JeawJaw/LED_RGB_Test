@@ -17,7 +17,7 @@ const channels = {
 
 const presets = [
   ["แดง",255,0,0],["ส้ม",255,96,0],["เหลือง",255,210,0],
-  ["เขียว",0,255,96],["ฟ้า",0,210,255],["น้ำเงิน",42,90,255],
+  ["เขียว",0,255,0],["เขียวมิ้น",0,255,173],["ฟ้า",0,210,255],["น้ำเงิน",42,90,255],
   ["ม่วง",160,70,255],["ชมพู",255,70,160],["ขาว",255,255,255]
 ];
 
@@ -57,7 +57,10 @@ function sendRgb() {
   }).catch(error => setStatus(`ส่งข้อมูลไม่สำเร็จ: ${error.message}`));
 }
 
-function setStatus(message) { $("statusText").textContent = message; }
+function setStatus(message) 
+{ 
+  $("statusText").textContent = message; 
+}
 
 async function readLoop() {
   const decoder = new TextDecoder();
@@ -150,11 +153,15 @@ for (const [name,r,g,b] of presets) {
 }
 
 $("connectButton").addEventListener("click", () => connected ? disconnect() : connect());
-if (!("serial" in navigator)) {
+
+if (!("serial" in navigator)) 
+{
   $("browserWarning").classList.remove("d-none");
   $("connectButton").disabled = true;
 }
-navigator.serial?.addEventListener("disconnect", event => {
+
+navigator.serial?.addEventListener("disconnect", event => 
+{
   if (event.target === port) disconnect();
 });
 updateUi();
