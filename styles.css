@@ -12,11 +12,6 @@ body {
     color: #f5f7fb;
 }
 
-/* .navbar,
-.container {
-    max-width: 80%;
-} */
-
 .navbar-status {
   position:relative;
   right: 12px;
